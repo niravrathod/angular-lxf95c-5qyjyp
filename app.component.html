@@ -1,0 +1,51 @@
+<div class="control-section">
+  <button
+    ejs-button
+    #button1
+    cssClass="btn btn-default"
+    content="AddRecord"
+    id="update"
+    (click)="onClicked()"
+  ></button>
+
+  <ejs-treegrid
+    [dataSource]="data"
+    height="400"
+    childMapping="subtasks"
+    [treeColumnIndex]="1"
+    [editSettings]="editSettings"
+    [toolbar]="toolbar"
+    (actionComplete)="actionComplete($event)"
+  >
+    <e-columns>
+      <e-column
+        field="taskID"
+        headerText="Task ID"
+        width="70"
+        textAlign="Right"
+        isPrimaryKey="true"
+        [validationRules]="taskidrules"
+      ></e-column>
+      <e-column
+        field="taskName"
+        headerText="Task Name"
+        width="180"
+        editType="stringedit"
+        [validationRules]="tasknamerules"
+      ></e-column>
+      <e-column field="approved" headerText="Approved" width="90"></e-column>
+      <e-column
+        field="progress"
+        headerText="Progress"
+        width="80"
+        textAlign="Right"
+      ></e-column>
+      <e-column
+        field="priority"
+        headerText="Priority"
+        width="100"
+        textAlign="Right"
+      ></e-column>
+    </e-columns>
+  </ejs-treegrid>
+</div>
